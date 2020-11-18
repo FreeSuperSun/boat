@@ -7,20 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>圣杯布局与双飞翼布局示例</title>
     <style>
+        #holy {
+            min-width: 400px;
+            max-width: 800px;
+        }
+
         #holy-container {
             background-color: #6699CC;
             outline: black 1px solid;
 
             overflow: hidden;
-            min-width: 400px;
-            max-width: 800px;
 
             padding: 0 150px;
         }
 
         #holy-container > div {
             outline: black 1px solid;
-            height: 300px;
 
             float: left;
         }
@@ -41,6 +43,7 @@
             position: relative;
             margin-left: -100%;
             left: -150px;
+            height: 100px;
         }
 
         #holy-right {
@@ -51,6 +54,8 @@
 
         #wings {
             margin-top: 200px;
+            max-width: 800px;
+            min-width: 400px;
         }
 
         #wings-container {
@@ -64,20 +69,18 @@
 
         #wings-container > div {
             outline: black 1px solid;
-            height: 300px;
 
             float: left;
         }
 
         #wings-center {
-
             width: 100%;
         }
 
         #wings-inner-center {
-            width: 100%;
             margin: 0 150px;
             background-color: #663366;
+            height: 100px;
         }
 
         #wings-left, #wings-right {
@@ -87,33 +90,29 @@
         }
 
         #wings-left {
-            position: relative;
             margin-left: -100%;
-            left: -150px;
         }
 
         #wings-right {
-            position: relative;
             margin-left: -150px;
-            right: -150px;
         }
     </style>
 </head>
 <body>
 <div id="holy">
     <div id="holy-container">
-        <div id="holy-center"></div>
-        <div id="holy-left"></div>
-        <div id="holy-right"></div>
+        <div id="holy-center">holy center</div>
+        <div id="holy-left">holy left</div>
+        <div id="holy-right">holy right</div>
     </div>
 </div>
 <div id="wings">
     <div id="wings-container">
         <div id="wings-center">
-            <div id="wings-inner-center"></div>
+            <div id="wings-inner-center">wings inner center</div>
         </div>
-        <div id="wings-left"></div>
-        <div id="wings-right"></div>
+        <div id="wings-left">wings left</div>
+        <div id="wings-right">wings right</div>
     </div>
 </div>
 </body>
