@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局与双飞翼布局示例</title>
+    <style>
+        #holy-container {
+            background-color: #6699CC;
+            outline: black 1px solid;
+
+            overflow: hidden;
+            min-width: 400px;
+            max-width: 800px;
+
+            padding: 0 150px;
+        }
+
+        #holy-container > div {
+            outline: black 1px solid;
+            height: 300px;
+
+            float: left;
+        }
+
+        #holy-center {
+            background-color: #663366;
+
+            width: 100%;
+        }
+
+        #holy-left, #holy-right {
+            background-color: #CCCC99;
+
+            width: 150px;
+        }
+
+        #holy-left {
+            position: relative;
+            margin-left: -100%;
+            left: -150px;
+        }
+
+        #holy-right {
+            position: relative;
+            margin-left: -150px;
+            right: -150px;
+        }
+
+        #wings {
+            margin-top: 200px;
+        }
+
+        #wings-container {
+            background-color: #6699CC;
+            outline: black 1px solid;
+
+            overflow: hidden;
+            min-width: 400px;
+            max-width: 800px;
+        }
+
+        #wings-container > div {
+            outline: black 1px solid;
+            height: 300px;
+
+            float: left;
+        }
+
+        #wings-center {
+
+            width: 100%;
+        }
+
+        #wings-inner-center {
+            width: 100%;
+            margin: 0 150px;
+            background-color: #663366;
+        }
+
+        #wings-left, #wings-right {
+            background-color: #CCCC99;
+
+            width: 150px;
+        }
+
+        #wings-left {
+            position: relative;
+            margin-left: -100%;
+            left: -150px;
+        }
+
+        #wings-right {
+            position: relative;
+            margin-left: -150px;
+            right: -150px;
+        }
+    </style>
+</head>
+<body>
+<div id="holy">
+    <div id="holy-container">
+        <div id="holy-center"></div>
+        <div id="holy-left"></div>
+        <div id="holy-right"></div>
+    </div>
+</div>
+<div id="wings">
+    <div id="wings-container">
+        <div id="wings-center">
+            <div id="wings-inner-center"></div>
+        </div>
+        <div id="wings-left"></div>
+        <div id="wings-right"></div>
+    </div>
+</div>
+</body>
+</html>
