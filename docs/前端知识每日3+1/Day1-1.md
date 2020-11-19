@@ -3,14 +3,12 @@
 
 #### `link`引入CSS样式的用法
 ```html
-<head>
-    <link rel="stylesheet" type="text/css" href="sheet1.css" media="all">
-</head>
+<link rel="stylesheet" type="text/css" href="Day1/sample-code/css2.css" media="all">
 ```
 
 #### `@import`引入CSS样式的用法
 ```css
-@import url(sheet2.css);
+@import url(./sample-code/css2.css);
 ```
 1. `@import`可以用在<style></style>标签中,或者用在外部的样式表文件中.
 2. `@import`必须写在最前面,如果前面有其它的CSS样式,则@import会被忽略.
