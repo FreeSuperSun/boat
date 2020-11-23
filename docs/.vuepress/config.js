@@ -3,7 +3,8 @@ module.exports = {
     themeConfig: {
         nav: [
             {text: '首页', link: '/'},
-            {text: '前端知识每日3+1', link: '/前端知识每日3+1/'},
+            {text: '前端每日3+1', link: '/three-plus-one/'},
+            {text: '编程基本知识', link: '/编程基本知识/'},
             {
                 text: '联系我', items: [{
                     text: '邮箱', link: 'mailto://freesupersun@freesupersun.com'
@@ -12,9 +13,10 @@ module.exports = {
                     {text: 'gitee', link: 'https://gitee.com/freesupersun'}]
             },
         ],
-        sidebar: 'auto'
+        sidebar: [
+            '/',
+            '/markdown'
+        ]
     },
-    plugins: {
-        "vuepress-plugin-auto-sidebar": {}
-    }
+    plugins: {}
 }
