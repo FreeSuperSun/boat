@@ -1,3 +1,10 @@
+---
+title:返回随机整数
+---
+
+# 返回随机整数
+
+```js
 //返回[0,m)范围内随机整数,包括0,不包括m.
 function getRandomInteger(m) {
     return Math.floor(Math.random() * m);
@@ -17,3 +24,4 @@ function getRandomInteger(min, max) {
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+```
