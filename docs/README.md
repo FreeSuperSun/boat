@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: 无涯之舟
-tagline: 努力成为合格的全栈工程师
+tagline: 努力成为合格的全栈程序员
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
