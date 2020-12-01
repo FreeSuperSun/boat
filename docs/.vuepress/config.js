@@ -1,4 +1,5 @@
 let navAndSidebar = require('./nav-and-sidebar.js');
+
 module.exports = {
     title: '无涯之舟',
     themeConfig: {

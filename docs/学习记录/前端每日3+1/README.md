@@ -1,3 +1,7 @@
+---
+sidebar:true
+---
+
 # 首页
 
 [Github](https://github.com/haizlin/fe-interview)
