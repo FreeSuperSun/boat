@@ -12,9 +12,14 @@ const nav = [
             {text: '前端每日3+1', link: '/学习记录/前端每日3+1/'}
         ]
     },
-    {text: '杂项', link: '/杂项/'},
     {text: '数据库', link: '/数据库/'},
+    {
+        text: '企业平台', items: [
+            {text: 'Flowportal BPM', link: '/企业平台/Flowportal BPM/'}
+        ]
+    },
     {text: '代码库', link: '/代码库/'},
+    {text: '杂项', link: '/杂项/'},
     {
         text: '联系我', items: [{
             text: '邮箱', link: 'mailto://freesupersun@freesupersun.com'
@@ -27,7 +32,7 @@ const nav = [
 const basePath = path.resolve(path.join(__dirname, '..'));
 
 //要生成侧边栏的文件夹清单
-const sidebarFolders = ['代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库'];
+const sidebarFolders = ['代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库', path.join('企业平台', 'Flowportal BPM')];
 
 //生成侧边栏的入口
 async function generateSidebar() {
@@ -60,7 +65,7 @@ async function generateSidebarForFolder(folder) {
     for (let markdownFile of filesAndFolders.filter((item) => {
         return path.extname(item) === '.md'
     })) {
-        console.log(markdownFile);
+        // console.log(markdownFile);
         //每个生成链接
         sidebarSelf.push({
             title: await getTitleFromFolderOrFile(path.join(folder, markdownFile)),
@@ -114,11 +119,11 @@ async function getTitleFromFolderOrFile(fileOrFolderPath) {
 }
 
 
-module.exports = (options, ctx) => {
+module.exports = () => {
     return {
         name: 'vuepress-plugin-nav-and-sidebar',
         async ready() {
-            console.log('plugin is ready');
+            // console.log('plugin is ready');
             sidebar = await generateSidebar();
         },
         async enhanceAppFiles() {

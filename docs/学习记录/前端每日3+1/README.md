@@ -1,5 +1,6 @@
 ---
-sidebar:true
+sidebar: true
+title: 前端每日3+1
 ---
 
 # 前端每日3+1
