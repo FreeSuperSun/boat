@@ -1,6 +1,6 @@
 ---
-sidebar:true
-title:杂项
+sidebar: true
+title: 杂项
 ---
 
 # 杂项

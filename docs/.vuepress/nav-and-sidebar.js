@@ -1,7 +1,7 @@
+
 const path = require('path');
 const fs = require('fs/promises');
-// const grayMatter = require('gray-matter')
-const fsOrigin = require('fs');
+const matter = require('gray-matter')
 
 //基础路径
 const basePath = path.resolve(path.join(__dirname, '..'));
@@ -26,8 +26,11 @@ const nav = [
 ];
 
 //要生成侧边栏的文件夹清单
+// const sidebarFolders = [path.join('学习记录', '前端每日3+1')];
 const sidebarFolders = ['代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库'];
 let sidebar = {};
+
+console.log(path.join('学习记录', '前端每日3+1'));
 
 //生成侧边栏的入口
 async function generateSidebar() {
@@ -37,7 +40,7 @@ async function generateSidebar() {
         let sidebarForFolder = {[appendSlash(folder).replace(/\\/g, '/')]: await generateSidebarForFolder(folder)};
         Object.assign(sidebar, sidebarForFolder);
     }
-    // console.log(sidebar);
+    console.log(sidebar);
 }
 
 //为指定文件夹生成侧边栏
@@ -59,9 +62,11 @@ async function generateSidebarForFolder(folder) {
     for (let markdownFile of filesAndFolders.filter((item) => {
         return path.extname(item) === '.md'
     })) {
+        console.log(markdownFile);
         //每个生成链接
         sidebarSelf.push({
-            title: markdownFile,
+            title: await getTitleFromFolderOrFile(path.join(folder, markdownFile)),
+            // title: markdownFile,
             //这里需要手动替换一下,windows环境下会不对
             path: appendSlash(folder).replace(/\\/g, '/') +
                 path.parse(markdownFile).name
@@ -76,11 +81,10 @@ async function generateSidebarForFolder(folder) {
             children: await generateSidebarForFolder(path.join(folder, childFolder))
         });
     }
-    console.log(sidebarSelf);
+    // console.log(sidebarSelf);
     return sidebarSelf;
 }
 
-generateSidebar().catch();
 
 //前后加上斜杠
 function appendSlash(path) {
@@ -93,8 +97,15 @@ async function getTitleFromFolderOrFile(fileOrFolderPath) {
     if (path.extname(fileOrFolderPath) === '.md') {
         try {
             //如果能读到README.md文件,就返回读到的title
-            await fs.access(path.join(basePath, fileOrFolderPath), fsOrigin.constants.R_OK);
-            return path.basename(fileOrFolderPath);
+            const fileContent = await fs.readFile(path.join(basePath, fileOrFolderPath), 'utf-8');
+            const title = matter(fileContent).data.title;
+            // console.log(title);
+            if (title) {
+                return title
+            } else {
+                // console.log(path.basename(fileOrFolderPath));
+                return path.basename(fileOrFolderPath);
+            }
         } catch {
             //如果读不到,就返回最后文件夹的名字
             return path.basename(path.dirname(fileOrFolderPath));
