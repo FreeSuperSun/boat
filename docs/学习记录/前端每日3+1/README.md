@@ -2,15 +2,13 @@
 sidebar:true
 ---
 
-# 首页
+# 前端每日3+1
 
 [Github](https://github.com/haizlin/fe-interview)
 
-[Homepage](http://www.h-camel.com/index.html)
+[官方主页](http://www.h-camel.com/index.html)
 
 [历史题目](https://github.com/haizlin/fe-interview/blob/master/category/history.md)
-
-最新完成题目 Day1
 
 未完成清单:
 Day2-1 HTML元素
