@@ -1,10 +1,9 @@
-
 const path = require('path');
 const fs = require('fs/promises');
 const matter = require('gray-matter')
 
-//基础路径
-const basePath = path.resolve(path.join(__dirname, '..'));
+let sidebar = {};
+
 
 const nav = [
     {text: '首页', link: '/'},
@@ -24,23 +23,22 @@ const nav = [
             {text: 'gitee', link: 'https://gitee.com/freesupersun'}]
     },
 ];
+//基础路径
+const basePath = path.resolve(path.join(__dirname, '..'));
 
 //要生成侧边栏的文件夹清单
-// const sidebarFolders = [path.join('学习记录', '前端每日3+1')];
 const sidebarFolders = ['代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库'];
-let sidebar = {};
-
-console.log(path.join('学习记录', '前端每日3+1'));
 
 //生成侧边栏的入口
 async function generateSidebar() {
+    let sidebar = {};
     //对每个需要生成侧边栏的文件夹进行生成
     for (let folder of sidebarFolders) {
         //需要特别处理,否则windows下出错
         let sidebarForFolder = {[appendSlash(folder).replace(/\\/g, '/')]: await generateSidebarForFolder(folder)};
         Object.assign(sidebar, sidebarForFolder);
     }
-    console.log(sidebar);
+    return sidebar;
 }
 
 //为指定文件夹生成侧边栏
@@ -66,7 +64,6 @@ async function generateSidebarForFolder(folder) {
         //每个生成链接
         sidebarSelf.push({
             title: await getTitleFromFolderOrFile(path.join(folder, markdownFile)),
-            // title: markdownFile,
             //这里需要手动替换一下,windows环境下会不对
             path: appendSlash(folder).replace(/\\/g, '/') +
                 path.parse(markdownFile).name
@@ -116,29 +113,19 @@ async function getTitleFromFolderOrFile(fileOrFolderPath) {
     }
 }
 
-// let sidebar_test = {
-//     '/代码库/': [
-//         '',
-//         'JS返回随机整数',
-//     ],
-//     '/编程基本知识/': [
-//         '',
-//         'markdown',
-//         '正则表达式'
-//     ],
-//     '/学习记录/前端每日3+1/': [
-//         {title: '首页', path: '/学习记录/前端每日3+1/'},
-//         {
-//             title: 'Day1',
-//             children: [
-//                 {path: '/学习记录/前端每日3+1/Day1/Day1-1'},
-//                 {
-//                     title: 'Day2',
-//                     children: [{path: '/学习记录/前端每日3+1/Day2/Day2-1'}]
-//                 }]
-//         }
-//     ],
-// };
-module.exports = {
-    nav: nav, sidebar: sidebar
+
+module.exports = (options, ctx) => {
+    return {
+        name: 'vuepress-plugin-nav-and-sidebar',
+        async ready() {
+            console.log('plugin is ready');
+            sidebar = await generateSidebar();
+        },
+        async enhanceAppFiles() {
+            return {
+                name: "nav-and-sidebar",
+                content: `export default ({ siteData, options }) => { siteData.themeConfig.sidebar = ${JSON.stringify(sidebar)}; siteData.themeConfig.nav = ${JSON.stringify(nav)}}`
+            }
+        }
+    }
 }

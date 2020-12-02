@@ -3,5 +3,7 @@ module.exports = {
     themeConfig: {
         sidebarDepth: 0,
     },
-    plugins: {}
+    plugins: [
+        require('./vuepress-plugin-nav-and-sidebar')
+    ]
 }
