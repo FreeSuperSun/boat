@@ -15,3 +15,9 @@ title: markdown
 我是分隔线|&#124;
 
 >[V2EX](https://www.v2ex.com/t/169359)
+
+#### 在Markdown件中慎用尖括号和html元素
+
+在使用html时,一定要用反引号给包起来,否则Markdown解析器会发生错误.
+
+因为在Markdown中是允许直接书写HTML代码的,所以解析就会发生错误.
