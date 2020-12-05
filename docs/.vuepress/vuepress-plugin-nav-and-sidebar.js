@@ -7,6 +7,7 @@ let sidebar = {};
 
 const nav = [
     {text: '首页', link: '/'},
+    {text: '编程语言', link: '/编程语言/'},
     {
         text: '学习记录', items: [
             {text: '前端每日3+1', link: '/学习记录/前端每日3+1/'}
@@ -20,7 +21,7 @@ const nav = [
     },
     {text: '代码库', link: '/代码库/'},
     {text: '杂项', link: '/杂项/'},
-    {text:'杂项推荐',link:'/杂项推荐/'},
+    {text: '杂项推荐', link: '/杂项推荐/'},
     {
         text: '联系我', items: [{
             text: '邮箱', link: 'mailto://freesupersun@freesupersun.com'
@@ -33,7 +34,7 @@ const nav = [
 const basePath = path.resolve(path.join(__dirname, '..'));
 
 //要生成侧边栏的文件夹清单
-const sidebarFolders = ['代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库', path.join('企业平台', 'Flowportal BPM'),'杂项推荐'];
+const sidebarFolders = ['编程语言', '代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库', path.join('企业平台', 'Flowportal BPM'), '杂项推荐'];
 
 //生成侧边栏的入口
 async function generateSidebar() {
