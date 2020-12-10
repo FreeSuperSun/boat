@@ -10,14 +10,13 @@ const nav = [
     {text: '编程语言', link: '/编程语言/'},
     {
         text: '学习记录', items: [
-            {text: '前端每日3+1', link: '/学习记录/前端每日3+1/'}
+            {text: '前端每日3+1', link: '/学习记录/前端每日3+1/'},
+            {text: 'Python100天', link: '/学习记录/Python100天/'}
         ]
     },
     {text: '数据库', link: '/数据库/'},
     {
-        text: '企业平台', items: [
-            {text: 'Flowportal BPM', link: '/企业平台/Flowportal BPM/'}
-        ]
+        text: '企业平台', link: '/企业平台/'
     },
     {text: '代码库', link: '/代码库/'},
     {text: '杂项', link: '/杂项/'},
@@ -34,7 +33,7 @@ const nav = [
 const basePath = path.resolve(path.join(__dirname, '..'));
 
 //要生成侧边栏的文件夹清单
-const sidebarFolders = ['编程语言', '代码库', '杂项', path.join('学习记录', '前端每日3+1'), '数据库', path.join('企业平台', 'Flowportal BPM'), '杂项推荐'];
+const sidebarFolders = ['编程语言', '代码库', '杂项', path.join('学习记录', 'Python100天'), path.join('学习记录', '前端每日3+1'), '数据库', '企业平台', '杂项推荐'];
 
 //生成侧边栏的入口
 async function generateSidebar() {
