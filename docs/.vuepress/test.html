@@ -6,13 +6,15 @@
     <style>
         .box {
             width: 20em;
-            height: 10em;
+            height: 15em;
             border: 1px solid #ddd;
-            overflow: hidden;
+            overflow: scroll;
+
         }
 
         .list {
-            height: 100%;
+            height: 10em;
+            width: 100%;
             background: #ddd;
             text-align: center;
             position: relative;
@@ -22,18 +24,24 @@
             position: absolute;
             top: 0;
             height: 100%;
-            width: 1px;
+            width: 100%;
             border: 0;
             padding: 0;
             margin: 0;
-            //clip: rect(0 0 0 0);
+            clip: rect(0 0 0 0);
+        }
+        #list-one {
+            background-color: red;
+        }
+        #list-two {
+            background-color: green;
         }
     </style>
 </head>
 <body>
 <div class="box">
-    <div class="list"><input id="one" readonly>1</div>
-    <div class="list"><input id="two" readonly>2</div>
+    <div class="list" id="list-one"><input id="one" readonly>1</div>
+    <div class="list" id="list-two"><input id="two" readonly>2</div>
     <div class="list"><input id="three" readonly>3</div>
     <div class="list"><input id="four" readonly>4</div>
 </div>
