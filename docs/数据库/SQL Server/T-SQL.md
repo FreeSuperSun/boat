@@ -4,6 +4,34 @@ title: T-SQL
 
 # T-SQL
 
+## GROUP BY
+
+### ROLLUP
+
+放在GROUP BY子句里面,用于生成分组小计,类似于分类汇总.
+
+好像有两种,一种是在GROUP BY后面加上WITH ROLLUP;一种是使用GROUP BY ROLLUP(col1,col2).
+
+两者没有区别,GROUP BY(col1,col2) WITH ROLLUP跟GROUP BY ROLLUP(col1,col2)是一样的.第二种更
+灵活,可以与普通的列配合,如 GROUP BY col1,ROLLUP(col2).
+
+GROUP BY ROLLUP (col1, col2, col3, col4) 为以下列表中的每个列表达式组合创建组。
+col1、col2、col3、col4
+col1、col2、col3、NULL
+col1、col2、NULL、NULL
+col1、NULL、NULL、NULL
+NULL、NULL、NULL、NULL
+
+#### 参考链接
+
+[SQL Server中Rollup关键字使用技巧(统计功能)](https://blog.csdn.net/chenguang79/article/details/7187571)
+
+### GROUPING
+
+作为一个条件,判断该行数据是否在某列上进行了分组. GROUPING(col1).
+
+可以用在SELECT子句(CASE)或HAVING子句中,配合ROLLUP可以隐藏不需要的合计列.
+
 ## 条件语句
 
 `case-when-then`
