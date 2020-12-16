@@ -1,5 +1,5 @@
 ---
-title: 杂项
+title: npm
 ---
 
 # 杂项
