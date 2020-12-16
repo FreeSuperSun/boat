@@ -55,10 +55,10 @@ async function generateSidebarForFolder(folder) {
     const filesAndFolders = await fs.readdir(folderPath);
     //首先根据README.md生成链接
     if (filesAndFolders.includes('README.md')) {
-        sidebarSelf.push({
-            title: await getTitleFromFolderOrFile(folder),
-            path: appendSlash(folder).replace(/\\/g, '/')
-        });
+        // sidebarSelf.push({
+        //     title: await getTitleFromFolderOrFile(folder),
+        //     path: appendSlash(folder).replace(/\\/g, '/')
+        // });
         //删掉,防止后面重复处理
         filesAndFolders.splice(filesAndFolders.indexOf('README.md'), 1);
     }
@@ -79,10 +79,19 @@ async function generateSidebarForFolder(folder) {
     }
     //剩下的都是文件夹了向下递归所有文件夹
     for (let childFolder of filesAndFolders) {
-        sidebarSelf.push({
-            title: await getTitleFromFolderOrFile(path.join(folder, childFolder)),
-            children: await generateSidebarForFolder(path.join(folder, childFolder))
-        });
+        //如果该目录下有README文件,则设置PATH,否则不设置
+        if (await hasReadme(path.join(folder, childFolder))) {
+            sidebarSelf.push({
+                title: await getTitleFromFolderOrFile(path.join(folder, childFolder)),
+                children: await generateSidebarForFolder(path.join(folder, childFolder)),
+                path: appendSlash(path.join(folder, childFolder)).replace(/\\/g, '/')
+            });
+        } else {
+            sidebarSelf.push({
+                title: await getTitleFromFolderOrFile(path.join(folder, childFolder)),
+                children: await generateSidebarForFolder(path.join(folder, childFolder)),
+            });
+        }
     }
     // console.log(sidebarSelf);
     return sidebarSelf;
@@ -92,6 +101,16 @@ async function generateSidebarForFolder(folder) {
 //前后加上斜杠
 function appendSlash(path) {
     return '/' + path + '/';
+}
+
+//判断文件夹下是否有README.md文件
+async function hasReadme(folder) {
+    try {
+        await fs.access(path.join(basePath, folder, 'README.md'));
+        return true;
+    } catch {
+        return false;
+    }
 }
 
 //得到文件夹内的README.md里面的title或者指定md文件的title
