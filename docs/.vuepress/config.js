@@ -6,6 +6,8 @@ module.exports = {
     },
     themeConfig: {
         sidebarDepth: 0,
+        author: 'FreeSuperSun',
+        subSidebar: 'auto'
     },
     plugins: [
         require('./vuepress-plugin-nav-and-sidebar')
