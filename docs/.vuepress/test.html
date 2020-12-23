@@ -1,57 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
-        .box {
-            width: 20em;
-            height: 15em;
-            border: 1px solid #ddd;
-            overflow: scroll;
+        div {
+            margin:20px;
+        }
+        #box {
+            height: 100px;
+            width: 100px;
+            background-color: #99CCFF;
+
+            padding: 20px;
+            border: 50px black;
+            border-style: dotted;
+            margin: 20px;
+            outline: 10px solid red;
 
         }
 
-        .list {
-            height: 10em;
+        #motherBox {
             width: 100%;
-            background: #ddd;
-            text-align: center;
-            position: relative;
+            height: 300px;
+            background-color: #336699;
         }
 
-        .list > input {
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            border: 0;
-            padding: 0;
-            margin: 0;
-            clip: rect(0 0 0 0);
-        }
-        #list-one {
+        div  span {
+            height: 40px;
             background-color: red;
         }
-        #list-two {
-            background-color: green;
+
+        #inline-block {
+            display: inline-block;
         }
     </style>
 </head>
 <body>
-<div class="box">
-    <div class="list" id="list-one"><input id="one" readonly>1</div>
-    <div class="list" id="list-two"><input id="two" readonly>2</div>
-    <div class="list"><input id="three" readonly>3</div>
-    <div class="list"><input id="four" readonly>4</div>
+<div id="motherBox">
+    <div id="box">
+    </div>
 </div>
-<div class="link">
-    <label class="click" for="one">1</label>
-    <label class="click" for="two">2</label>
-    <label class="click" for="three">3</label>
-    <label class="click" for="four">4</label>
+<div>
+    我是行内
+
+    <span id="inline-block"> 我是行内块</span>
+    你是谁
 </div>
+<div>
+    我是行内
 
-
+    <span id="inline"> 我也是行内</span>
+    你是谁
+</div>
 </body>
 </html>
