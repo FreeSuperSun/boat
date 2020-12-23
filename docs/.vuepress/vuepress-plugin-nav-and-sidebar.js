@@ -15,6 +15,7 @@ const nav = [
             {text: 'Python100天', link: '/学习记录/Python100天/'}
         ]
     },
+    {text: '操作系统使用', link: '/操作系统使用/'},
     {text: '数据库', link: '/数据库/'},
     {text: '企业平台', link: '/企业平台/'},
     {text: '代码库', link: '/代码库/'},
@@ -32,7 +33,7 @@ const nav = [
 const basePath = path.resolve(path.join(__dirname, '..'));
 
 //要生成侧边栏的文件夹清单
-const sidebarFolders = ['工具使用', '框架与库', '编程语言', '代码库', '杂项', path.join('学习记录', 'Python100天'), path.join('学习记录', '前端每日3+1'), '数据库', '企业平台', '杂项推荐'];
+const sidebarFolders = ['工具使用', '框架与库', '操作系统使用', '编程语言', '代码库', '杂项', path.join('学习记录', 'Python100天'), path.join('学习记录', '前端每日3+1'), '数据库', '企业平台', '杂项推荐'];
 
 //生成侧边栏的入口
 async function generateSidebar() {
@@ -51,7 +52,16 @@ async function generateSidebarForFolder(folder) {
     let sidebarSelf = [];
     //列出本级有哪些文件和文件夹
     const folderPath = path.join(basePath, folder);
-    const filesAndFolders = await fs.readdir(folderPath);
+    //需要进行手动排序
+    let filesAndFolders = await fs.readdir(folderPath);
+    filesAndFolders = filesAndFolders.sort((prev, next) => {
+        let reg = /[0-9]+$/g;
+        if (prev.match(reg) && next.match(reg)) {
+            return Number(prev.match(reg)[0]) - Number(next.match(reg)[0]);
+        } else {
+            return prev < next ? -1 : 1;
+        }
+    });
     //首先根据README.md生成链接
     if (filesAndFolders.includes('README.md')) {
         // sidebarSelf.push({
