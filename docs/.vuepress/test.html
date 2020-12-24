@@ -6,55 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        div {
-            margin:20px;
-        }
-        #box {
-            height: 100px;
-            width: 100px;
-            background-color: #99CCFF;
-
-            padding: 20px;
-            border: 50px black;
-            border-style: dotted;
-            margin: 20px;
-            outline: 10px solid red;
-
-        }
-
-        #motherBox {
-            width: 100%;
-            height: 300px;
-            background-color: #336699;
-        }
-
-        div  span {
-            height: 40px;
-            background-color: red;
-        }
-
-        #inline-block {
-            display: inline-block;
-        }
-    </style>
 </head>
 <body>
-<div id="motherBox">
-    <div id="box">
-    </div>
-</div>
-<div>
-    我是行内
+<script>
+    function urlParam(){
+        const param = {};
+        location.search.replace(/([^&=?]+)=([^&]+)/g,(m,$1,$2)=> param[$1] = $2);
+        return param;
+    }
 
-    <span id="inline-block"> 我是行内块</span>
-    你是谁
-</div>
-<div>
-    我是行内
+    console.log(urlParam());
 
-    <span id="inline"> 我也是行内</span>
-    你是谁
-</div>
+
+</script>
 </body>
 </html>
