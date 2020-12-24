@@ -2,7 +2,7 @@
 title: T-SQL
 ---
 
-# T-SQL
+## 
 
 ## GROUP BY
 
@@ -88,17 +88,23 @@ alter table table_name
 default 0 for column_a
 ```
 
-2. 存储过程如何设置默认值
+#### SELECT与SET赋值的区别
 
-```tsql
-create proc proc_name
-@first int = null,
-@second int = 2,
-@third int = 3
-as
-...
-go
+使用select与set都可以给变量赋值,不过二者之间也有细微差别
+
+1. select可以在一个语句中给多个变量赋值,set只能给一个变量赋值.
+2. set使用查询结果赋值时,如果查询返回多行,则会报错.select则会将最后一行的值赋给变量.
+3. 如果查询结果返回0行,则select不会改变变量的值;set则会将变量值设为null.
+
+[set与select为变量赋值的区别](https://www.cnblogs.com/gered/p/10647575.html)
+
+#### 类型转换
+
+```sql
+-- CAST Syntax:  
+CAST ( expression AS data_type [ ( length ) ] )  
+  
+-- CONVERT Syntax:  
+CONVERT ( data_type [ ( length ) ] , expression [ , style ] )  
 ```
 
-调用时是按位置传值,所以有默认值尽量放在参数列表后面,就可以
-根据调时的参数个数选择是否使用默认值.
