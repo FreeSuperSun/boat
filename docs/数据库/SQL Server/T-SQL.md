@@ -2,7 +2,42 @@
 title: T-SQL
 ---
 
-## 
+## 查询
+
+#### TOP
+
+用来限制查询或操作的行数,可以用在select insert delete update中.
+
+##### 语法
+```sql
+[   
+    TOP (expression) [PERCENT]  
+    [ WITH TIES ]  
+]  
+```
+
+##### 指定整数与百分数
+
+1. 如果不加上percent条件,则会指定为整数行.
+2. 如果加上percent则前面会转成float并指定为百分数.同时百分数的小数部分也会舍入.
+
+##### 使用变量或子查询
+
+top后面为参数为表达式,即可以使用变量或子查询返回值的形式.
+
+##### with ties
+
+表示会返回与本来指定的若干行数最后一行中与order by子句中指的的条件相同的其它行.
+
+有可能会造成实际行数多于top指定行数的情况.
+
+##### 最值实践
+
+1. 始终在top后面的表达式中使用括号.
+
+##### 参考链接
+
+[MSDN TOP](https://docs.microsoft.com/zh-cn/sql/t-sql/queries/top-transact-sql?view=sql-server-ver15)
 
 ## GROUP BY
 

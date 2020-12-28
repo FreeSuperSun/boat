@@ -4,6 +4,27 @@ title: Array
 
 ## 函数
 
+### 索引相关
+
+#### indexOf()
+
+```js
+arr.indexOf(searchElement[, fromIndex])
+```
+
+返回在数组中可以找到一个给定元素的第一个索引.
+
+如果不存在要查找元素,则返回-1.
+
+###### searchElement
+要查找的元素
+###### fromIndex
+开始查找的位置
+
+##### 用途
+
+1. 可以配合循环手动进行去重,对每个元素执行indexOf,然后看返回值与自身索引是否一致.
+
 ### 遍历函数
 
 相关遍历函数主要有:
@@ -34,3 +55,18 @@ title: Array
    
     
 
+
+
+### 其它函数
+
+#### flat()
+
+```js
+let newArray = arr.flat([depth])
+```
+
+按照指定深度递归遍历数组,并进行打平.
+
+指定Infinity会将会完全打平.
+
+使用时注意兼容性问题.
