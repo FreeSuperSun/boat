@@ -35,6 +35,10 @@ Day13-4: HTTP状态码也没具体使用过,用的时候再参考吧.
 
 Day14-2: position:fixed;在ios下无效该怎么办？ 没有ios设备,有了再测.
 
+Day16-4: 代码审查(CodeReview) 没有接触过,也没有审查过也没有被审查过,也没有用过CR系统.
+
+Day18-1: 圆形可点击区域 有关canvas map area svg方面的知识
+
 放弃清单:
 
 Day2-2: CSS3有哪些新增的特性 对我来说所有的特性都是新特性
@@ -46,3 +50,7 @@ Day8-1: 与Day4-1类似,且已不推荐使用
 Day14-4: 你喜欢用什么样的编辑器? 功夫到了极致,飞花摘叶皆可伤人.
 
 Day15-1: title与h1的区别、b与strong的区别、i与em的区别？标签语义化方面已包括.
+
+Day18-2: FOUC(Flash of Unstyled Content) 在Day1-1中就有提到.
+
+Day18-4: 如何看待团建 我是死宅

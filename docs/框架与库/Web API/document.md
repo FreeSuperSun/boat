@@ -11,3 +11,7 @@ title: Document
 #### location
 
 返回一个Location对象.
+
+#### documentElement
+
+返回文档对象的根元素(html元素)

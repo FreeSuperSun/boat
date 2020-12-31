@@ -6,6 +6,25 @@ title: linux
 
 ## 常用命令
 
+### 定时任务
+
+#### 修改定时任务
+
+```bash
+crontab -e
+```
+
+1. 第1列分钟0～59
+1. 第2列小时0～23（0表示子夜）
+1. 第3列日1～31
+1. 第4列月1～12
+1. 第5列星期0～7（0和7表示星期天）
+1. 第6列要运行的命令
+
+#### 参考链接
+
+[crontab定时任务](https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/crontab.html)
+
 ### 修改密码
 
     ```bash
