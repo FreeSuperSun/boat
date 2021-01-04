@@ -39,6 +39,10 @@ Day16-4: 代码审查(CodeReview) 没有接触过,也没有审查过也没有被
 
 Day18-1: 圆形可点击区域 有关canvas map area svg方面的知识
 
+Day19-3: attribute与property的区别 二者关系比较复杂,有实际应用经验后再整理.
+
+Day20-1: HTML元素的显示优先级 不明白是个什么概念
+
 放弃清单:
 
 Day2-2: CSS3有哪些新增的特性 对我来说所有的特性都是新特性
