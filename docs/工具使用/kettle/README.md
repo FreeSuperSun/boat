@@ -4,7 +4,8 @@ title: PDI(Pentaho Data Integration)
 
 ## 相关概念
 
-PDI(也称为Kettle),是一个ETL(Extract-Transform-Load 数据抽取-转换-加载)工具,可以将业务系统的数据经过抽取、清洗转换之后加载到数据仓库,用以进行进一步的分析或展示.
+PDI(也称为Kettle),是一个ETL(Extract-Transform-Load 数据抽取-转换-加载)工具,
+可以将业务系统的数据经过抽取、清洗转换之后加载到数据仓库,用以进行进一步的分析或展示.
 
 PDI由纯java编写,主流平台均可运行,依赖少,数据处理高效稳定.
 
